@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import ReactGA from 'react-ga';
+
+const TRACKING_ID = "G-HRZHKGTKHC"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 function Square(props) {
     return (
@@ -73,6 +77,10 @@ class Game extends React.Component {
     }
 
     handleClick(i) {
+        ReactGA.event({
+            category: 'User',
+            action: 'Clicked a Square'
+          });
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
