@@ -10,6 +10,21 @@ function Square(props) {
     );
 }
 
+class Header extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            header: 'Tic Tac Toe'
+        };
+    }
+    render() {
+          return (
+        <h1 className="header">{this.state.header}</h1>
+    );  
+    }
+
+}
+
 class Board extends React.Component {
 
     renderSquare(i) {
@@ -53,6 +68,7 @@ class Game extends React.Component {
             }],
             stepNumber: 0,
             xIsNext: true,
+            header: 'Tic Tac Toe'
         };
     }
 
@@ -104,7 +120,10 @@ class Game extends React.Component {
         }
 
         return (
+            <div>
+                <Header />
             <div className="game">
+                
                 <div className="game-board">
                     <Board
                         squares={current.squares}
@@ -115,6 +134,7 @@ class Game extends React.Component {
                     <div>{status}</div>
                     <ol>{moves}</ol>
                 </div>
+            </div>
             </div>
         );
     }
