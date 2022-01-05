@@ -11,15 +11,6 @@ function Square(props) {
 }
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xIsNext: true,
-        };
-    }
-
-
 
     renderSquare(i) {
         return (
@@ -31,14 +22,6 @@ class Board extends React.Component {
     }
 
     render() {
-        const winner = calculateWinner(this.state.squares);
-        let status;
-        if (winner) {
-            status = 'Winner: ' + winner;
-        } else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-        }
-
         return (
             <div>
                 <div className="board-row">
